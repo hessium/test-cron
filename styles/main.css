@@ -290,7 +290,7 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 100px 0 rgba(0, 0, 0, 0.5);
 }
-@media (max-width: 1920px) {
+@media (max-width: 1910px) {
   .main__logo {
     width: 36.4583vw;
     height: 36.4583vw;
