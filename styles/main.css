@@ -283,19 +283,24 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 39.0625vw;
-  height: 39.0625vw;
+  width: 36.4583vw;
+  height: 36.4583vw;
+  top: 50%;
   left: 210px;
-  top: 165px;
+  transform: translateY(-50%);
   border-radius: 50%;
   box-shadow: 0 0 100px 0 rgba(0, 0, 0, 0.5);
 }
 @media (max-width: 1910px) {
   .main__logo {
-    width: 36.4583vw;
-    height: 36.4583vw;
-    top: 50%;
-    transform: translateY(-50%);
+    width: 39.0625vw;
+    height: 39.0625vw;
+  }
+}
+@media (min-height: 1024px) {
+  .main__logo {
+    width: 39.0625vw;
+    height: 39.0625vw;
   }
 }
 @media (max-width: 1024px) {
