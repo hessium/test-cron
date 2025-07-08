@@ -1,0 +1,392 @@
+@import "fonts.css";
+@import "reset";
+@import "variables";
+
+
+body {
+  overflow: hidden;
+  font-family: Geometria, sans-serif;
+  background-color: $background-color;
+  color: $text-color;
+  min-height: 100vh;
+  line-height: 1.2;
+}
+
+.container {
+  width: 100%;
+  padding-inline: 5.20833vw;
+
+  @include respond-to(xl) {
+    padding-inline: 1rem;
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding-top: 4.16667vw;
+  padding-bottom: 4.16667vw;
+  display: flex;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+  }
+
+  &__nav {
+    margin-left: 9.375vw;
+
+    @include respond-to(xl) {
+      margin-left: 0;
+    }
+
+    @include respond-to(md) {
+      margin-left: 0;
+      z-index: 10;
+      position: absolute;
+      top: 50px;
+      left: 1rem;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.4s ease-in-out;
+      overflow: hidden;
+
+      &.is-active {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: unset;
+      }
+    }
+
+    &-list {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+
+      @include respond-to(lg) {
+        gap: 16px;
+      }
+
+      @include respond-to(md) {
+        flex-direction: column;
+        padding: 1rem 0;
+      }
+    }
+
+    &-link {
+      color: $text-color;
+      text-decoration: none;
+      font-size: 1.25vw;
+      transition: color 0.3s ease;
+      text-transform: uppercase;
+
+      @include respond-to(lg) {
+        font-size: 18px;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: $primary-color;
+        }
+      }
+
+    }
+  }
+
+  &__dots {
+    margin-right: 20px;
+  }
+
+  &__decorator {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+
+    &--1 {
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+
+      @include respond-to(xl) {
+        display: none;
+      }
+    }
+
+    &--2 {
+      right: 25.20833vw;
+      width: 29.47917vw;
+
+      @include respond-to(lg) {
+        display: none;
+      }
+    }
+
+    &--3 {
+      right: 0;
+      width: 20.60417vw;
+
+      @include respond-to(lg) {
+        display: none;
+      }
+    }
+  }
+}
+
+
+.burger {
+  display: none;
+
+  @include respond-to(md) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 40px;
+    height: 40px;
+    gap: 6px;
+  }
+
+  &__line {
+    display: inline-block;
+    width: 26px;
+    height: 3px;
+    background-color: $text-color;
+    border-radius: 10px;
+    transition: transform 0.4s ease-in-out;
+
+    &:first-child {
+      transform-origin: 0 0;
+    }
+
+    &:last-child {
+      transform-origin: 0 100%;
+    }
+  }
+
+  &.is-active {
+    & .burger__line {
+      &:first-child {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        transform: scaleY(0);
+      }
+
+      &:last-child {
+        transform: rotate(-45deg) translateX(0);
+      }
+    }
+  }
+}
+
+.dots {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  background: $text-color;
+  box-shadow: -20px 0, 20px 0;
+  box-sizing: border-box;
+  animation-duration: 2s;
+
+  @media (hover: hover) {
+    &:hover {
+      animation-name: rotation;
+    }
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__container {
+    display: flex;
+    justify-content: flex-end;
+
+    @include respond-to(md) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    z-index: 1;
+    background-color: $primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 39.0625vw;
+    height: 39.0625vw;
+    left: 210px;
+    top: 165px;
+    border-radius: 50%;
+    box-shadow: 0 0 100px 0 rgba(0, 0, 0, 0.5);
+
+    @include respond-to(3xl) {
+      width: 36.4583vw;
+      height: 36.4583vw;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @include respond-to(lg) {
+      left: 5.9375vw;
+    }
+
+    @include respond-to(md) {
+      position: static;
+      transform: translateY(0);
+    }
+
+    & img {
+      width: 7.39583vw;
+      height: 27.39583vw;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    z-index: 0;
+
+    &--two {
+      left: 0;
+      bottom: 0;
+      width: 35.10417vw;
+
+      @include respond-to(lg) {
+        display: none;
+      }
+    }
+
+    &--three {
+      right: 5.72917vw;
+      bottom: 178px;
+      width: 18.4375vw;
+      height: 5.15625vw;
+
+      @include respond-to(xl) {
+        right: 1rem;
+      }
+
+      @include respond-to(lg) {
+        display: none;
+      }
+    }
+  }
+
+  &__content {
+    max-width: 46.40625vw;
+    z-index: 1;
+    margin-right: 5.9375vw;
+
+    @include respond-to(md) {
+      margin-right: 0;
+      max-width: 100%;
+    }
+  }
+
+  &__text {
+    h1 {
+      font-family: Gotham, sans-serif;
+      font-size: 10.41667vw;;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: -2.08333vw;
+
+      @include respond-to(md) {
+        margin-bottom: 0;
+        font-size: 32px;
+      }
+    }
+
+    p {
+      padding-left: 14px;
+      font-size: 2.5vw;
+      line-height: 1.4;
+      font-weight: 500;
+
+      @include respond-to(md) {
+        padding-left: 0;
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__social {
+    position: fixed;
+    bottom: 60px;
+    right: 5.72917vw;
+    display: flex;
+    gap: 32px;
+
+    @include respond-to(xl) {
+      right: 1rem;
+      gap: 16px;
+    }
+
+    @include respond-to(md) {
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 20px;
+    }
+  }
+}
+
+.social-link {
+  width: 72px;
+  height: auto;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+
+  @include respond-to(xl) {
+    width: 50px;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      & svg {
+        fill: $primary-color;
+      }
+    }
+  }
+
+  & svg {
+    width: 100%;
+    height: 100%;
+    fill: $text-color;
+    transition: all .1s linear;
+  }
+} 

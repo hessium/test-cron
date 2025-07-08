@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Geometria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/geometria_regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Geometria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/geometria_medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../fonts/gothampro_black.woff") format("woff");
+}
